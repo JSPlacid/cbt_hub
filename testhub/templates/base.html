@@ -6,10 +6,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <title>Test Hub</title>
+   {% load static %}
+   {% block html_head %}
+   {% endblock %}
 </head>
 <body>
    <nav>
-      <div class="container">
+      <div class="container1">
          <a href="{% url 'index' %}">Test Hub</a>
       </div>
 

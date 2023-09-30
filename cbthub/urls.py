@@ -25,16 +25,15 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('testhub/', include('testhub.urls')),
-    # path('register/', include('register.urls')),
+
 
     # Redirect the root URL to the testhub app
     path('', RedirectView.as_view(url='testhub/', permanent=True)),
 ] + static(settings.STATIC_URL,
            document_root=settings.STATIC_ROOT)
 
+urlpatterns += [
+    path('users/', include('django.contrib.auth.urls')),
 
-# from users import views as user_views
-
-# urlpatterns += [
-#     path('register/', user_views.register, name='register'),
-# ]
+    path('users/', include('users.urls')),
+]

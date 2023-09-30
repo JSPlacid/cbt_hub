@@ -8,6 +8,21 @@
    <title>Test Hub</title>
 </head>
 <body>
+   <nav>
+      <div class="container">
+         <a href="{% url 'index' %}">Test Hub</a>
+      </div>
+
+      <div class="">
+         {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">profile</a>
+            <a href="{% url 'logout' %}">Log out</a>
+         {% else%}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+         {% endif %}
+      </div>
+   </nav>
    <div class="col-md-8">
       {% if messages %}
          {% for message in messages %}

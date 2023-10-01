@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block html_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/quiz.css' %}" />
+{% comment %} <script src=" {% static 'js/qui1z.js' %}" defer></script> {% endcomment %}
+{% endblock %}
+
+
+{% block content %}
+<div class='container'>
+    <div id='question-box' class='question'>
+        <div class='question-btn correct' id='question'>Question</div>
+        <div class='answer'>
+
+            <button class='btn' id='answer'>Answer 1</button>
+            <button class='btn' id='answer'>Answer 2</button>
+            <button class='btn' id='answer'>Answer 3</button>
+            <button class='btn' id='answer'>Answer 4</button>
+        </div>
+    </div>
+    <div class='control'>
+        <button class='start-btn btn'>Start</button>
+        <button class='next-btn btn question'>Next</button>
+    </div>
+</div>
+
+        <script>
+            // save the json response in a variable
+            var data = {{ data|safe }};
+            
+            let startBtn=document.querySelector('.start-btn');
+            let nextBtn=document.querySelector('.next-btn');
+            let questionContainer=document.querySelector('.question')
+            let questionElement=document.querySelector('#question')
+            let answerContainer=document.querySelector('.answer')
+            let shuffleQuestions, currentQuestion;
+            
+            startBtn.addEventListener('click', startGame);
+
+            nextBtn.addEventListener('click', () => {
+                currentQuestion++;
+                nextBtn.classList.add('question');
+                setNextQuestion();
+            });
+
+
+            // 
+               function startGame() {
+                startBtn.classList.add('question');
+                questionContainer.classList.remove('question');
+                // for shffling the questions
+                shuffleQuestions=data.sort(()=> Math.random() - .5);
+                currentQuestion=0;
+                setNextQuestion()
+            }
+
+            function setNextQuestion() {
+                resetState();
+                showQuestion(shuffleQuestions[currentQuestion]);
+            }
+
+            function showQuestion(data) {
+                questionElement.textContent = data.question;
+
+                data.answers.forEach(answer => {
+                    const button = document.createElement('button');
+                    button.textContent = answer.text;
+                    button.classList.add('btn');
+                    button.addEventListener('click', selectAnswer);
+                    answerContainer.appendChild(button);
+                })
+            }
+
+            function selectAnswer() {
+                if(shuffleQuestions.length > currentQuestion + 1){
+                    nextBtn.classList.remove('question');
+                }else{
+                    startBtn.textContent='Restart';
+                    startBtn.classList.remove('question')
+                }
+            }
+            
+
+            function resetState(){
+    
+                while(answerContainer.firstChild){
+                    answerContainer.removeChild(answerContainer.firstChild)
+                }
+           }
+           
+        </script>
+{% endblock %}

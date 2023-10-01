@@ -4,29 +4,6 @@
    <h2> This is home </h2>
 
    <li><a href ="{% url 'index' %}">Home</a></li>
-   <form method="POST">
-      <ul>
-      <ol>
-         {% for question in questions %}
-         <li value="numerals">{{ question.text }}
-            
-         </li>  
-   
-            <menu value="alphanum">
-               {% for answer in question.answer_set.all %}
-               
-                  <input type="radio" name = "question_{{ question.id }}"
-                  value = "{{ answer.id }}">
-                  {{ answer.text }}
-                  {% endfor %}
-               
-            </menu>
-            
-         {% endfor %}
-         </ol>
-         
-      </ul>
-
-   </form>
+   <li><a href = "{% url 'display_quiz' %}"> Start Quiz </a></li>
    {% endblock %}
 

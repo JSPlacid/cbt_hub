@@ -1,0 +1,27 @@
+body {
+    background: #18b875;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align:  center;
+}
+
+.heading {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sub-heading {
+    font-size: 24px;
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.response {
+    font-size: 16px;
+    margin-bottom: 15px;
+}

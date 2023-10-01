@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block html_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/review.css' %}" />
+<script src=" {% static 'js/quiz1.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1 class="heading"> Quiz Review </h1>
+<p> Thank you for taking the quiz. </p>
+
+<h2 class="sub-eading"> Your Responses: </h2>
+<ul class="responses">
+    {% for question_id, response_data in user_responses.items %}
+
+    <li class="response">
+        Question: {{ question_id}} <br>
+        Selected Answer: {{ response_data.selected_answer_id }} <br>
+        {% if response_data.is_correct %}
+        <span style="color: green;"> Correct </span>
+        {% else %}
+        <span style="color: red;"> Incorrect </span>
+        {% endif %}
+    </li>
+    {% endfor %}
+
+</ul>
+
+<h2> Total Score: {{total_score }} out of {{ user_responses|length }} </h2>
+</div>
+{% endblock %}

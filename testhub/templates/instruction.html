@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> Quiz </title>
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/instruction.css' %}">
+<head>
+    {% block content %}
+    
+    <div class="container">
+        <h1>Welcome to the Quiz!</h1>
+        
+        <h2>Instructions</h2>
+        <ol>
+            <li><strong>Quiz Objective:
+            </strong>
+             This quiz is designed to test your knowledge on general topic.
+             It consists of {{ question_length }} questions.
+           </li>
+  
+            <li><strong>Time Limit:
+            </strong> You have five(5) minutes to complete the quiz.
+              The timer will start as soon as you click "Start Quiz."
+           </li>
+  
+            <li><strong>Question Format:
+            </strong> Each question has multiple-choice options.
+              Choose the answer you believe is correct by clicking on the corresponding option.
+           </li>
+  
+            <li><strong>
+              Navigating Questions:
+           </strong> You can navigate between questions using 
+           the "Previous" and "Next" buttons. 
+           </li>
+  
+            <li><strong>Scoring:
+            </strong> Your score will be displayed at the end of the quiz.
+            Click on check result at the profile page to view result for the quiz,
+            and there is no penalty for incorrect answers.
+           </li>
+  
+            <li><strong>Have Fun:
+            </strong> Enjoy the quiz and challenge yourself. Good luck!
+           </li>
+  
+        </ol>
+  
+        <p><strong>Ready to Start?</strong></p>
+        <p>When you're ready,click the 
+           <a class='btn' href = "{% url 'get_questions' question_id=1 %}">
+               Start Quiz </a>
+                button below to begin.
+                Remember to manage your time wisely and answer to the best of your knowledge.
+              </p>
+        <p>Happy quizzing!</p>
+    </div>
+    {% endblock %}
+    </html>

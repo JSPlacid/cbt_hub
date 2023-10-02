@@ -1,6 +1,40 @@
 {% extends "base.html" %}
+{% block html_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h3>{{user.username}}</h3>
 
+    <li><a href ="{% url 'index' %}">Home</a></li>
+   <li><a href = "{% url 'instruction' %}"> Start Quiz </a></li>
+   <li><a href = "{% url 'review_quiz'  %}"> Check Result </a></li>
+
+   <header>
+    <h1>Welcome, {{user.username}} </h1>
+    
+</header>
+
+<section>
+    <h2>Profile Statistics</h2>
+    <ul>
+        <li>Total Quizzes Taken: </li>
+        <li>Average Score: </li>
+        <li>Highest Score: </li>
+        <li>Quiz Categories: </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Achievement</h2>
+    <div class="badge1">
+        <div class="progress">
+            <div class="progress-bar" style="width:10%">1%</div>
+          </div> 
+    </div>
+</section>
+    <footer style="position: absolute;
+        right:50%">
+        <p>&copy; 2023 Testhub</p>
+    </footer>
 {% endblock %}

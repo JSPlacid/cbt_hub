@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Question, Answer
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -9,6 +10,7 @@ def index(request):
     return (render(request, 'index.html'))
 
 
+@login_required
 def get_questions(request, question_id):
     """Method that get the questions from the data
         store the users response in a session
@@ -28,21 +30,25 @@ def get_questions(request, question_id):
         selected_answer = get_object_or_404(Answer, pk=selected_answer_id)
         is_correct = selected_answer.is_correct
         
-        #check if 'user_responses' not in session
-        if 'user_responses' not in request.session:
-            requestion.session['user_responses'] = {}
+        #Create an empty list of users response
+        user_responses = request.session.get('user_responses', [])
         
-        request.session['user_responses'][question_id] = {
-            'selected_answer_id': selected_answer_id,
-            'is_correct': is_correct
-        }
+        user_responses.append(
+            {
+                'question_id': question.id,
+                'selected_answer_id': selected_answer_id,
+                'is_correct': is_correct,
+            }
+        )
         
+        
+        request.session['user_responses'] = user_responses
         
         if nextQuestion:
-            return (redirect('get_questions_json', question_id=nextQuestion.id))
+            return (redirect('get_questions', question_id=nextQuestion.id))
         else:
             
-            return (render("Quiz completed"))
+            return (redirect("index"))
         
         
     
@@ -53,23 +59,34 @@ def get_questions(request, question_id):
     
     
     
-    
+
+@login_required
 def review_quiz(request):
         """Method that display the quiz result"""
         
         #Get the user responses from the session
-        user_responses = request.session.get('user_responses', {})
+        user_responses = request.session.get('user_responses', [])
         
         
-        total_score = 0
-        for question_id, response_data in user_responses.items():
-            is_correct = response.info.get('is_correct', False)
-            if is_correct:
-                total_score += 1
-    
+        #Calculate the score
+        total_score = sum(1 for response in user_responses if response['is_correct'])
+        
+        #clear the session
+        # request.session['user_responses'] = []
+        
         return (render(request, 'review.html',
                    {
                        'user_responses': user_responses,
                        'total_score': total_score,
                    }))
-        
+ 
+ 
+ 
+@login_required
+def instruction(request):
+     """Method that render the instruction page"""
+     question_length = Question.objects.count()
+     
+     return(render(request, 'instruction.html', {
+         'question_length': question_length,
+     }))

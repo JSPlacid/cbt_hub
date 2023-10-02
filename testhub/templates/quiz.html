@@ -3,6 +3,7 @@
 {% block html_head %}
 {% load static %}
  <script src=" {% static 'js/timer.js' %}" defer></script>
+ <link rel="stylesheet" href="{% static 'css/quiz.css'%}"
 {% load static %}
 
 {% endblock %}
@@ -11,7 +12,7 @@
 {% block content %}
 <div class='container'>
     <div id = 'timer'> Time Remaining: <span id="countdown"> 00:00</span></div>
-    <form method="post">
+    <form method="post" action="{% url 'get_questions' question.id %}">
     {% csrf_token %}
     
     <div id='question-box' class='question'>
@@ -27,18 +28,19 @@
             
         </div>
     </div>
+    <input type="submit" class="btn btn-success" value="End Exam">
 </form>
-    <div class='control'>
-        {% if prevQuestion %}
-        <a href="{% url 'get_questions' question_id=prevQuestion.id %}"> <input type="submit" value="Prev"> </a>
-        {% endif %}
-        
-        {% if nextQuestion %} 
-        <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" value="Next"> </a> 
-        {% else %}
-        <a href="{% url 'review_quiz' %}"><input type="submit" value="Submit"></a>
-       {% endif %}
-    </div>
+<div class='control'>
+    {% if prevQuestion %}
+    <a href="{% url 'get_questions' question_id=prevQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Prev"> </a>
+    {% endif %}
+    
+    {% if nextQuestion %} 
+    <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Next"> </a> 
+    {% else %}
+    
+   {% endif %}
+</div>
 </div>
 
 {% endblock %}

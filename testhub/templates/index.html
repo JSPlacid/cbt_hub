@@ -1,9 +1,43 @@
 {% extends "base.html" %}
-  
-   {% block content %}
-   <h2> This is home </h2>
 
-   <li><a href ="{% url 'index' %}">Home</a></li>
-   <li><a href = "{% url 'get_questions' question_id=1 %}"> Start Quiz </a></li>
+  {% block html_head %}
+  {% load static %}  
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  {% endblock %}
+
+   {% block content %}
+   <header>
+        <h1>Welcome to Quiz App</h1>
+        <p>Test your knowledge and have fun!</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2>About Quiz App</h2>
+            <p>Welcome to Quiz App, your one-stop destination for challenging quizzes on a wide range of topics. Whether you're looking to test your knowledge, learn something new, or simply have fun, we have a quiz for you.</p>
+            <p>Our quizzes cover subjects from science, tech and history to pop culture and trivia. Explore our diverse collection, and let the quizzing begin!</p>
+        </section>
+        
+        <section>
+            <h2>How it Works</h2>
+            <p>Getting started is easy:</p>
+            <ol>
+                
+                <li>Answer Questions: Read each question carefully and select your answers.</li>
+                <li>Submit and Score: Submit your answers and see how you did. You'll receive instant feedback on your performance.</li>
+                <li>Challenge Friends: Share your results with friends and challenge them to beat your score.</li>
+            </ol>
+        </section>
+        
+        <section>
+            <h2>Ready to Begin?</h2>
+            <p>Start exploring our quizzes by clicking the button below:</p>
+            <a href="{% url 'instruction' %}" class="btn-start">Start Quizzing</a>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Quiz App</p>
+    </footer>
    {% endblock %}
 

@@ -9,21 +9,22 @@
 {% block content %}
 <div class="container">
 <h1 class="heading"> Quiz Review </h1>
-<p> Thank you for taking the quiz. </p>
+<p> Thank you {{request.user}} for taking the quiz. </p>
 
 <h2 class="sub-eading"> Your Responses: </h2>
 <ul class="responses">
-    {% for question_id, response_data in user_responses.items %}
-
+    {% for response in user_responses %}
     <li class="response">
-        Question: {{ question_id}} <br>
-        Selected Answer: {{ response_data.selected_answer_id }} <br>
-        {% if response_data.is_correct %}
+        Question: {{ response.question_id}} <br>
+        {% comment %} Selected Answer: {{ response.selected_answer_id }} <br> {% endcomment %}
+        {% if response.is_correct %}
         <span style="color: green;"> Correct </span>
         {% else %}
         <span style="color: red;"> Incorrect </span>
         {% endif %}
     </li>
+    {% empty %}
+    <p class="text-warning" style="font-size:30px;"> Try to attempt quiz </p>
     {% endfor %}
 
 </ul>

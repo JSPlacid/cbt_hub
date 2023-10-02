@@ -28,18 +28,18 @@
             
         </div>
     </div>
-    <input type="submit" class="btn btn-success" value="End Exam">
+    <div class='control'>
+        {% if prevQuestion %}
+        <a href="{% url 'get_questions' question_id=prevQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Prev"> </a>
+        {% endif %}
+        
+        {% if nextQuestion %} 
+        <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Next"> </a> 
+        {% else %}
+        <input type="submit" class="btn btn-success" value="End Exam">
+        
+       {% endif %}
 </form>
-<div class='control'>
-    {% if prevQuestion %}
-    <a href="{% url 'get_questions' question_id=prevQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Prev"> </a>
-    {% endif %}
-    
-    {% if nextQuestion %} 
-    <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Next"> </a> 
-    {% else %}
-    
-   {% endif %}
 </div>
 </div>
 

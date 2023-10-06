@@ -9,6 +9,7 @@ This README provides an overview of how to develop a Computer-Based Test (CBT) a
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
 * [Getting Started](#getting_started)
+  
     *[Create a Django Project]
   
     •[ Create  Django Apps]
@@ -39,6 +40,7 @@ Basic knowledge of Django and web development.
 
 ## Installation
 * Clone this repository: `git clone https://github.com/JSPlacid/cbt_hub.git`
+
 *  Access cbt_hub directory: `cd cbt_hub`
 *  code .
 
@@ -58,6 +60,7 @@ Create  Django apps for the CBT functionality:
 
 3. Define Models:
 Define models for tests, questions, users, results, etc., in models.py within the testhub.
+
 `class Question(models.Model)`
 
 `class Answer(models.Model):`
@@ -92,8 +95,11 @@ No known bugs at this time.
 
 ## Authors
 Ayela Oluwaseun - [Github](https://github.com/Seun-Ayela)
+
 Olusegun Ojo - [Github](https://github.com/JSPlacid)
+
 Babatunde Awotimilehin - [Github](https://github.com/Olatundeawo)
+
 ## License
 Public Domain. No copy write protection. 
 

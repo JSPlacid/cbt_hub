@@ -10,12 +10,19 @@ This README provides an overview of how to develop a Computer-Based Test (CBT) a
 * [Installation](#installation)
 * [Getting Started](#getting_started)
     *[Create a Django Project]
+  
     •[ Create  Django Apps]
+  
     *[Define Models]
+  
     *[Implement Views and Templates]
+  
     •[Set Up URLs]
+  
     *[Handle Authentication and Authorization]
+  
     *[Create Forms]
+  
 * [Testing and Deployment](#testing_deployment)
 * [Bugs](#bugs)
 * [Authors](#authors)
@@ -39,33 +46,36 @@ Basic knowledge of Django and web development.
 1. Create a Django Project:
 Create a new Django project or use an existing one:
 
-django-admin startproject cbthub
+`django-admin startproject cbthub`
 
 
 2. Create  Django Apps:
 Create  Django apps for the CBT functionality:
 
-python manage.py startapp users
-python manage.py startapp testhub
+`python manage.py startapp users`
+
+`python manage.py startapp testhub`
 
 3. Define Models:
 Define models for tests, questions, users, results, etc., in models.py within the testhub.
-class Question(models.Model):
-class Answer(models.Model):
+`class Question(models.Model)`
 
-4. Implement Views and Templates:
-Implement views to handle test-taking, results, and question management. Create corresponding HTML templates for these views.
+`class Answer(models.Model):`
+
 
 5. Implement Views and Templates:
 Implement views to handle test-taking, results, and question management. Create corresponding HTML templates for these views.
 
-6. Set Up URLs:
+6. Implement Views and Templates:
+Implement views to handle test-taking, results, and question management. Create corresponding HTML templates for these views.
+
+7. Set Up URLs:
 Configure URL patterns in urls.py to map URLs to the appropriate views.
 
-7. Handle Authentication and Authorization:
+8. Handle Authentication and Authorization:
 Implement user authentication and authorization to ensure only registered users can take tests and view results.
 
-8. Create Forms:
+9. Create Forms:
 Create forms to handle test submissions and user input for questions.
 
 

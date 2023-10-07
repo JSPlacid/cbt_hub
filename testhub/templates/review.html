@@ -7,7 +7,44 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+
+<header class="container p-5">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-12 offset-md-3 p-3">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <h1 class="heading p-3"> Quiz Review </h1>
+                    <hr>
+                    <p> Thank you {{request.user}} for taking the quiz. </p>
+                    <h2 class="sub-eading p-3"> Your Responses: </h2>
+                    <ul class="responses">
+                        {% for response in user_responses %}
+                        <li class="response">
+                            Question: {{ response.question_id}} <br>
+                            {% comment %} Selected Answer: {{ response.selected_answer_id }} <br> {% endcomment %}
+                            {% if response.is_correct %}
+                            <span style="color: green;"> Correct </span>
+                            {% else %}
+                            <span style="color: red;"> Incorrect </span>
+                            {% endif %}
+                        </li>
+                        {% empty %}
+                        <p class="text-warning" style="font-size:30px;"> Try to attempt quiz </p>
+                        {% endfor %}
+                    
+                    </ul>
+                    <hr>
+                    <h2 class="p-3"> Total Score: {{total_score }} out of {{ user_responses|length }} </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+<footer class="text-dark text-center fw-bolder col-md-12  offset-md-3">
+    <p>&copy; 2023 Testhub</p>
+</footer>
+
+<!-- <div class="container">
 <h1 class="heading"> Quiz Review </h1>
 <p> Thank you {{request.user}} for taking the quiz. </p>
 
@@ -30,5 +67,5 @@
 </ul>
 
 <h2> Total Score: {{total_score }} out of {{ user_responses|length }} </h2>
-</div>
+</div> -->
 {% endblock %}

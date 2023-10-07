@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
+{% if form.errors %}
+   <p>Your username and password didn't match. Please try again.</p>
+{% endif %}
 
   <!-- {% if next %}
     {% if user.is_authenticated %}
@@ -14,23 +14,30 @@
     {% endif %}
   {% endif %} -->
 
-   <div class="content-section">
-      <form method="POST">
-         {% csrf_token %}
-         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Log in</legend>
-            {{form.as_p}}
-
-            <div class="form-group">
-               <button class="btn btn-outline-info" type="submit">login</button>
+<div class="cover mt-3 p-3">
+   <div class="container p-3">
+      <div class="row mt-5 pt-3">
+         <div class="col-md-5 offset-md-6 ">
+            <div class="card my-3 shadow">
+               <div class="card-body">
+                  <h4 class="p-3">Login Page</h4>
+                  <hr>
+                  <form method="POST">
+                     {% csrf_token %}
+                     {{form.as_p}}
+                     <input class="btn btn-primary btn-block " type="submit" value="Login">
+                  </form>
+                  <hr>
+                  <small class="text-muted p-3">
+                     Need an account? <a class="ml-2" href="{% url 'register' %}">sign up Now</a>
+                  </small>
+               </div>
             </div>
-         </fieldset>
-
-      </form>
-      <div class="border-top pt-3">
-         <small class="text-muted">
-            Need an account? <a class="ml-2" href="{% url 'register' %}">sign up Now</a>
-         </small>
+         </div>
       </div>
    </div>
+</div>
+
+
+  
 {% endblock %}

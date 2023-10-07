@@ -25,3 +25,17 @@
     font-size: 16px;
     margin-bottom: 15px;
 } */
+
+footer {
+    text-align: center;
+    color: #777;
+    padding: 10px;
+}
+hr {
+    position: relative;
+    /* top: 20px; */
+    border: none;
+    height: 2px;
+    background: rgb(57, 40, 245);
+    /* margin-bottom: 50px; */
+}

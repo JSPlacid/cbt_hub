@@ -1,0 +1,31 @@
+/* .btn-start {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+} */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-start:hover {
+  background-color: #2980b9;
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  padding: 10px;
+}
+hr {
+  position: relative;
+  /* top: 20px; */
+  border: none;
+  height: 2px;
+  background: rgb(57, 40, 245);
+  /* margin-bottom: 50px; */
+}

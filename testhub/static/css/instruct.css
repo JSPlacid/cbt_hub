@@ -1,0 +1,21 @@
+footer {
+  text-align: center;
+  color: #777;
+  padding: 10px;
+}
+li {
+  margin-bottom: 15px;
+  /* Adjust the margin to create desired space */
+}
+.btn {
+  display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #aad5f1;;
+}

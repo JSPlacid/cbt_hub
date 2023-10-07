@@ -5,36 +5,85 @@
 {% endblock %}
 
 {% block content %}
-
-    <li><a href ="{% url 'index' %}">Home</a></li>
-   <li><a href = "{% url 'instruction' %}"> Start Quiz </a></li>
-   <li><a href = "{% url 'review_quiz'  %}"> Check Result </a></li>
-
-   <header>
-    <h1>Welcome, {{user.username}} </h1>
-    
+<br>
+<header class="container navbar">
+    <div class="row pt-3">
+        <div class="col-md-12  offset-md-12 ">
+            <div class="card my-3 shadow">
+                <div class="card-body profile_nav">
+                <ul>
+                    <li class="nav-item" style="justify-items: space-around;">
+                        <a href="{% url 'index' %}" class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'instruction' %}" class="nav-link" href="#">Start Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'review_quiz' %}" class="nav-link" href="#">Check Result</a>
+                    </li>
+                </ul>
+                </div>  
+            </div>  
+        </div> 
+    </div>
 </header>
 
-<section>
-    <h2>Profile Statistics</h2>
-    <ul>
-        <li>Total Quizzes Taken: </li>
-        <li>Average Score: </li>
-        <li>Highest Score: </li>
-        <li>Quiz Categories: </li>
-    </ul>
-</section>
+<header class="container">
+    <div class="row pt-3">
+        <div class="col-md-12  offset-md-3 ">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <h2 class="text-center text-dark pb-3 mt-2">Welcome, {{user.username}}</h1>
+                    <hr>
+                
+                </div>
+            </div>
+        </div>
+</header>
 
-<section>
-    <h2>Achievement</h2>
-    <div class="badge1">
-        <div class="progress">
-            <div class="progress-bar" style="width:10%">1%</div>
-          </div> 
+<main class="container">
+    <div class="row pt-3">
+        <div class="col-md-12  offset-md-3 ">
+            <section class="card my-3 shadow">
+                <div class="card-body">
+                    <h2 class="text-center text-dark  pb-3 mt-2">Profile Statistics</h2>
+                    <hr>
+                    <ul>
+                        <li>Total Quizzes Taken: </li>
+                        <li>Average Score: </li>
+                        <li>Highest Score: </li>
+                        <li>Quiz Categories: </li>
+                    </ul>
+            </section>
+        </div>
     </div>
-</section>
-    <footer style="position: absolute;
-        right:50%">
-        <p>&copy; 2023 Testhub</p>
-    </footer>
+
+        <div class="col-md-12  offset-md-3 ">
+            <section class="card my-3 shadow">
+                <div class="card-body">
+                    <h2 class="text-center text-dark  pb-3 mt-3">Achievement</h2>
+                    <hr>
+                    <ul>
+                        <li>Total Quizzes Taken: </li>
+                        <li>Average Score: </li>
+                        <li>Highest Score: </li>
+                        <li>Quiz Categories: </li>
+                    </ul>
+                    <div class="badge1">
+                        <div class="progress">
+                            <div class="progress-bar" style="width:10%">1%</div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+</main>
+        
+<!-- <footer style="position: absolute;
+    right:50%">
+    <p>&copy; 2023 Testhub</p>
+</footer> -->
+<footer class="text-dark fw-bolder col-md-12  offset-md-3">
+    <p>&copy; 2023 Testhub</p>
+</footer>
+
 {% endblock %}

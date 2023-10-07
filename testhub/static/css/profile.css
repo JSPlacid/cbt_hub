@@ -1,43 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 
-        h1 {
-            background-color: #3498db;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+    }
+hr {
+    position: relative;
+    /* top: 20px; */
+    border: none;
+    height: 2px;
+    background: rgb(57, 40, 245);
+    /* margin-bottom: 50px; */
+}
+.profile_nav {
+    background-color: #e3dfdf;
+}
+     
+/* h2 {
+    color: #333;
+} */
+strong {
+    font-weight: bold;
+}
 
-        section {
-            background-color: #fff;
-            margin: 20px;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
+ul {
+    list-style: none;
+    padding: 0;
+    display: inline;
+    
+}
 
-        h2 {
-            color: #333;
-        }
-        strong {
-            font-weight: bold;
-        }
+li {
+    margin-bottom: 5px;
+    /* display: inline; */
+    /* display: inline-block; */
+        /* Display list items inline */
+        margin-right: 10px;
+        /* Add some spacing between items if needed */
 
-        ul {
-            list-style: none;
-            padding: 0;
-            
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
+}
+.nav-item {
+    display: inline-block;
+}
 
 footer {
-    position: absolute;
-    color: red
+    text-align: center;
+    color: #777;
+    padding: 10px;
 }
+/* .space {
+    background-color: red;
+} */

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     # Added application
     'testhub.apps.TesthubConfig',
     'users.apps.UsersConfig',
+    'crispy_forms',
+    # "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -116,6 +118,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 # Static files (CSS, JavaScript, Images)

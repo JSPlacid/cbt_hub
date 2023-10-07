@@ -1,43 +1,71 @@
 {% extends "base.html" %}
 
-  {% block html_head %}
-  {% load static %}  
-  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-  {% endblock %}
+{% block html_head %}
+{% load static %}
 
-   {% block content %}
-   <header>
-        <h1>Welcome to Quiz App</h1>
-        <p>Test your knowledge and have fun!</p>
-    </header>
-    
-    <main>
-        <section>
-            <h2>About Quiz App</h2>
-            <p>Welcome to Quiz App, your one-stop destination for challenging quizzes on a wide range of topics. Whether you're looking to test your knowledge, learn something new, or simply have fun, we have a quiz for you.</p>
-            <p>Our quizzes cover subjects from science, tech and history to pop culture and trivia. Explore our diverse collection, and let the quizzing begin!</p>
+<link rel="stylesheet" href="{% static 'css/index1.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+  <header class="container">
+    <div class="row mt-5 pt-3">
+      <div class="col-md-12  offset-md-3 ">
+        <div class="card my-3 shadow">
+          <div class="card-body">
+            <h1 class="text-center text-primary pb-3">Welcome to Quiz App</h1>
+            <hr>
+            <p class="text-center text-dark fw-bold">Test your knowledge and have fun!</p>
+
+          </div>
+        </div>
+      </div>
+  </header>
+
+  <main class="container col-md-12  offset-md-3">
+    <div class="row pt-3">
+      <div class="col-md-10  offset-md-1 ">
+        <section class="card my-3 shadow">
+          <div class="card-body">
+            <h2 class="text-center text-primary pb-3 ">About Quiz App</h2>
+            <hr>
+            <p>Welcome to Quiz App, your one-stop destination for challenging quizzes on a wide range of topics. Whether
+              you're
+              looking to test your knowledge, learn something new, or simply have fun, we have a quiz for you.</p>
+            <p>Our quizzes cover subjects from science, tech and history to pop culture and trivia. Explore our diverse
+              collection,
+              and let the quizzing begin!</p>
         </section>
-        
-        <section>
-            <h2>How it Works</h2>
-            <p>Getting started is easy:</p>
+  
+        <section class="card my-3 shadow">
+          <div class="card-body">
+            <h2 class="text-center text-primary pb-3 " >How it Works</h2>
+            <hr>
+            <p class="text-center text-dark fw-bold">Getting started is easy:</p>
             <ol>
-                
-                <li>Answer Questions: Read each question carefully and select your answers.</li>
-                <li>Submit and Score: Submit your answers and see how you did. You'll receive instant feedback on your performance.</li>
-                <li>Challenge Friends: Share your results with friends and challenge them to beat your score.</li>
+  
+              <li>Answer Questions: Read each question carefully and select your answers.</li>
+              <li>Submit and Score: Submit your answers and see how you did. You'll receive instant feedback on your
+                performance.</li>
+              <li>Challenge Friends: Share your results with friends and challenge them to beat your score.</li>
             </ol>
+          </div>
         </section>
-        
-        <section>
-            <h2>Ready to Begin?</h2>
-            <p>Start exploring our quizzes by clicking the button below:</p>
-            <a href="{% url 'instruction' %}" class="btn-start">Start Quizzing</a>
+  
+        <section class="card my-3 shadow">
+          <div class="card-body">
+            <h2 class="text-center text-primary pb-3">Ready to Begin?</h2>
+            <hr class="text-dark fw-bolder">
+            <p class="text-center text-dark fw-bold">Start exploring our quizzes by clicking the button below:</p>
+            <div class="d-grid gap-2 col-4 mx-auto">
+              <a href="{% url 'instruction' %}" class="btn-start btn btn-primary mx-auto fw-bold">Start Quizzing</a>
+              <!-- <button class="btn btn-primary">Start Quizzing</button> -->
+            </div>
+          </div>
         </section>
+  
     </main>
-    
-    <footer>
-        <p>&copy; 2023 Quiz App</p>
-    </footer>
-   {% endblock %}
-
+  <footer class ="text-dark fw-bolder col-md-12  offset-md-3" >
+    <p>&copy; 2023 Testhub</p>
+  </footer>
+{% endblock %}

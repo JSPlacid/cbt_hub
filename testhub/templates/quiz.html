@@ -2,16 +2,57 @@
 
 {% block html_head %}
 {% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
  <script src=" {% static 'js/timer.js' %}" defer></script>
- <link rel="stylesheet" href="{% static 'css/quiz.css'%}"
-{% load static %}
+ <link rel="stylesheet" href="{% static 'css/quiz.css'%}">
 
 {% endblock %}
 
 
 {% block content %}
-<div class='container'>
-    <div id = 'timer'> Time Remaining: <span id="countdown"> 00:00</span></div>
+<header class="container navbar mt-3 mb-3 p-3">
+    <div class="row pt-3">
+        <div class="col-md-12  offset-md-3 ">
+            <div class="card my-3 shadow">
+                <div class="card-body profile_nav">
+                    <div id='timer'> Time Remaining: <span id="countdown"> 00:00</span></div>
+                    <form method="post" action="{% url 'get_questions' question.id %}">
+                        {% csrf_token %}
+                    
+                        <div id='question-box' class='question'>
+                            <h2 class='question-btn correct' id='question'>{{ question.text }}</h2>
+                            <div class='answer'>
+                    
+                                {% for answer in answers %}
+                    
+                                <input type="radio" name="selected_answer" value=" {{ answer.id }}">
+                                {{answer.text }}<br>
+                                {% endfor %}
+                    
+                            </div>
+                        </div>
+                        <div class='control'>
+                            {% if prevQuestion %}
+                            <a href="{% url 'get_questions' question_id=prevQuestion.id %}"> <input type="submit" class="btn btn-primary"
+                                    value="Prev"> </a>
+                            {% endif %}
+                    
+                            {% if nextQuestion %}
+                            <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" class="btn btn-primary"
+                                    value="Next"> </a>
+                            {% else %}
+                            <input type="submit" class="btn btn-success" value="End Exam">
+                    
+                            {% endif %}
+                    </form>
+                </div>
+            </div> 
+        </div> 
+    </div>
+</header>
+        
+<!-- <div class='container'> -->
+    <!-- <div id = 'timer'> Time Remaining: <span id="countdown"> 00:00</span></div>
     <form method="post" action="{% url 'get_questions' question.id %}">
     {% csrf_token %}
     
@@ -21,7 +62,7 @@
 
             {% for answer in answers %}
             
-            <input = type="radio" name="selected_answer"
+            <input type="radio" name="selected_answer"
             value=" {{ answer.id }}">
             {{answer.text }}<br>
             {% endfor %}
@@ -39,8 +80,8 @@
         <input type="submit" class="btn btn-success" value="End Exam">
         
        {% endif %}
-</form>
+    </form>
 </div>
-</div>
+</div> -->
 
 {% endblock %}

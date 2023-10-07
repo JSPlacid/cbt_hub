@@ -1,15 +1,16 @@
 
-
+/* 
 .container{
     width:800px;
     max-width:80%;
     padding:10px;
     background-color: whitesmoke;
+ 
     border-radius: 1rem;
     box-shadow: 0 0 10px 2px;
     overflow: hidden;
-}
-.answer{
+} */
+/* .answer{
     text-transform: capitalize;
     
 }
@@ -18,4 +19,22 @@
     display:flex;
     justify-content: center;
     align-items: center;
+} */
+
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    margin: 0;
+} */
+
+.container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    
 }

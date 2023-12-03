@@ -16,13 +16,21 @@
             <div class="card my-3 shadow">
                 <div class="card-body profile_nav">
                     <div id='timer'> Time Remaining: <span id="countdown"> 00:00</span></div>
+                    {% if messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                    <p class="message"><strong>{{ message }}</strong></p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                    
                     <form method="post" action="{% url 'get_questions' question.id %}">
                         {% csrf_token %}
                     
                         <div id='question-box' class='question'>
                             <h2 class='question-btn correct' id='question'>{{ question.text }}</h2>
                             <div class='answer'>
-                    
                                 {% for answer in answers %}
                     
                                 <input type="radio" name="selected_answer" value=" {{ answer.id }}">
@@ -41,47 +49,15 @@
                             <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" class="btn btn-primary"
                                     value="Next"> </a>
                             {% else %}
-                            <input type="submit" class="btn btn-success" value="End Exam">
-                    
+                            <input type="submit" class="btn btn-success" value="End Exam">                    
                             {% endif %}
+                        </div>
                     </form>
                 </div>
             </div> 
         </div> 
     </div>
 </header>
-        
-<!-- <div class='container'> -->
-    <!-- <div id = 'timer'> Time Remaining: <span id="countdown"> 00:00</span></div>
-    <form method="post" action="{% url 'get_questions' question.id %}">
-    {% csrf_token %}
-    
-    <div id='question-box' class='question'>
-        <h2 class='question-btn correct' id='question'>{{ question.text }}</h2>
-        <div class='answer'>
 
-            {% for answer in answers %}
-            
-            <input type="radio" name="selected_answer"
-            value=" {{ answer.id }}">
-            {{answer.text }}<br>
-            {% endfor %}
-            
-        </div>
-    </div>
-    <div class='control'>
-        {% if prevQuestion %}
-        <a href="{% url 'get_questions' question_id=prevQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Prev"> </a>
-        {% endif %}
-        
-        {% if nextQuestion %} 
-        <a href="{% url 'get_questions' question_id=nextQuestion.id %}"> <input type="submit" class="btn btn-primary" value="Next"> </a> 
-        {% else %}
-        <input type="submit" class="btn btn-success" value="End Exam">
-        
-       {% endif %}
-    </form>
-</div>
-</div> -->
 
 {% endblock %}

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # Added application
     'testhub.apps.TesthubConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
+    # 'crispy_forms',
     # "crispy_bootstrap4",
 ]
 
